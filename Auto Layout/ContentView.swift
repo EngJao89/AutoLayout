@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var texto: String = ""
+    @State private var senha: String = ""
+    
     var body: some View {
         VStack {
+            Text("Usuário")
+            TextField("Seu usuário...", text: $texto)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+            
+            Text("Senha")
+            TextField("Sua Senha...", text: $senha)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                
             Button(action: {
                 print("Botão pressionado")
             }) {
