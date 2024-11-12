@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var texto: String = ""
     @State private var senha: String = ""
+    @State private var lembrarUsuario: Bool = false
     
     var body: some View {
         VStack {
@@ -21,14 +22,21 @@ struct ContentView: View {
                 .cornerRadius(10)
             
             Text("Senha")
-            TextField("Sua Senha...", text: $senha)
+            SecureField("Sua Senha...", text: $senha)
                 .foregroundColor(.white)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
-                
+            
+            Toggle(isOn: $lembrarUsuario) {
+                Text("Lembrar de usuário")
+                    .foregroundColor(.black)
+            }
+            .padding()
+            
             Button(action: {
                 print("Botão pressionado")
+                print("Lembrar usuário: \(lembrarUsuario)")
             }) {
                 Text("Logar")
                     .foregroundColor(.white)
